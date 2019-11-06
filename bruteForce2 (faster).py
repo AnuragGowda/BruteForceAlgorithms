@@ -37,11 +37,12 @@ def display(startTime, tries):
     print("It took me " + str(tries)+" tries and "+ str(timedelta(seconds = (endTime - startTime)))+" seconds to brute force your password")
     exit()    
 
-def HackPass(password):
+def HackPass(password='123'):
     startTime, tries = time(), 0
     one = Wheel(printable.replace(whitespace,' '))
     while True:
         tries += 1
         blah = display(startTime, tries) if ''.join([str(i.value) for i in Wheel.wheels]) == password else Wheel.wheels[0].turn()
 
-HackPass('password')
+if __name__ == '__main__':
+    HackPass()
